@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.nodedata.dao.NodedataDao">
+    
+	<sql id="nodedataColumns">
+		a.id AS "id",
+		a.testmsb AS "testmsb",
+		a.testlsb AS "testlsb",
+		a.command AS "command",
+		a.sensor_time1 AS "sensorTime1",
+		a.sensor_time2_msb AS "sensorTime2Msb",
+		a.sensor_time2_lsb AS "sensorTime2Lsb",
+		a.segment_id_msb AS "segmentIdMsb",
+		a.segment_id_lsb AS "segmentIdLsb",
+		a.msb_id AS "msbId",
+		a.lsb_id AS "lsbId",
+		a.up_limit_msb AS "upLimitMsb",
+		a.up_limit_lsb AS "upLimitLsb",
+		a.lower_limit_msb AS "lowerLimitMsb",
+		a.lower_limit_lsb AS "lowerLimitLsb",
+		a.malfunction_status AS "malfunctionStatus",
+		a.restart AS "restart",
+		a.checknum AS "checknum",
+		a.a0 AS "a0",
+		a.b0 AS "b0",
+		a.c0 AS "c0"
+	</sql>
+	
+	<sql id="nodedataJoins">
+	</sql>
+    
+	<select id="get" resultType="Nodedata">
+		SELECT 
+			<include refid="nodedataColumns"/>
+		FROM nodedata a
+		<include refid="nodedataJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Nodedata">
+		SELECT 
+			<include refid="nodedataColumns"/>
+		FROM nodedata a
+		<include refid="nodedataJoins"/>
+		<where>
+			
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Nodedata">
+		SELECT 
+			<include refid="nodedataColumns"/>
+		FROM nodedata a
+		<include refid="nodedataJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO nodedata(
+			id,
+			testmsb,
+			testlsb,
+			command,
+			sensor_time1,
+			sensor_time2_msb,
+			sensor_time2_lsb,
+			segment_id_msb,
+			segment_id_lsb,
+			msb_id,
+			lsb_id,
+			up_limit_msb,
+			up_limit_lsb,
+			lower_limit_msb,
+			lower_limit_lsb,
+			malfunction_status,
+			restart,
+			checknum,
+			a0,
+			b0,
+			c0
+		) VALUES (
+			#{id},
+			#{testmsb},
+			#{testlsb},
+			#{command},
+			#{sensorTime1},
+			#{sensorTime2Msb},
+			#{sensorTime2Lsb},
+			#{segmentIdMsb},
+			#{segmentIdLsb},
+			#{msbId},
+			#{lsbId},
+			#{upLimitMsb},
+			#{upLimitLsb},
+			#{lowerLimitMsb},
+			#{lowerLimitLsb},
+			#{malfunctionStatus},
+			#{restart},
+			#{checknum},
+			#{a0},
+			#{b0},
+			#{c0}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE nodedata SET 	
+			testmsb = #{testmsb},
+			testlsb = #{testlsb},
+			command = #{command},
+			sensor_time1 = #{sensorTime1},
+			sensor_time2_msb = #{sensorTime2Msb},
+			sensor_time2_lsb = #{sensorTime2Lsb},
+			segment_id_msb = #{segmentIdMsb},
+			segment_id_lsb = #{segmentIdLsb},
+			msb_id = #{msbId},
+			lsb_id = #{lsbId},
+			up_limit_msb = #{upLimitMsb},
+			up_limit_lsb = #{upLimitLsb},
+			lower_limit_msb = #{lowerLimitMsb},
+			lower_limit_lsb = #{lowerLimitLsb},
+			malfunction_status = #{malfunctionStatus},
+			restart = #{restart},
+			checknum = #{checknum},
+			a0 = #{a0},
+			b0 = #{b0},
+			c0 = #{c0}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM nodedata
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

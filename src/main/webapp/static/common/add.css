@@ -1,0 +1,261 @@
+.navbar-inner {
+    background: none;
+}
+
+#left {
+    background: #edf4fa;
+    width: 220px!important;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #ddd;
+    background-image: linear-gradient(-180deg, #F1F4FF 0%, #D1DBF9 100%);
+    box-shadow: 0 1px 0 0 #BDC4E0;
+}
+
+.nav-tabs>li>a {
+    color: #3D5DC4;
+    border: 1px solid #BDC4E0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-align: left;
+    border-left: 0;
+}
+
+.accordion-heading,
+.table th {
+    white-space: nowrap;
+    background-color: #f5f5f5;
+    background-image: -moz-linear-gradient(top, #ffffff, #f5f5f5);
+    background-image: -ms-linear-gradient(top, #ffffff, #f5f5f5);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FAFAF9), to(#f5f5f5));
+    /* background-image: -webkit-linear-gradient(top,#bdddf5,#f5f5f5); */
+    ground-image: -o-linear-gradient(top, #ffffff, #f5f5f5);
+    background-image: linear-gradient(top, #ffffff, #f5f5f5);
+    background-repeat: repeat-x;
+    border-bottom: 1px solid #c3c8cc;
+}
+
+.nav-list>.active>a,
+.nav-list>.active>a:hover,
+.nav-list>.active>a:focus {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgba(104, 175, 236, 0.63);
+}
+
+.jericho_tab .tab_content {
+    float: left;
+    clear: both;
+    width: 100%;
+    padding-top: 7px;
+}
+
+.jericho_tab .tab_pages .tabs {
+    height: 32px;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    float: left;
+    /* line-height: 40px; */
+    padding: 10px 0;
+    background: #c3ddf4;
+	padding-bottom0;
+}
+
+.jericho_tab .tab_pages .tabs {
+    height: 26px;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    float: left;
+    /* line-height: 40px; */
+    padding: 10px 0;
+    background: rgba(195, 221, 244, 0.18);
+    /* background-image: linear-gradient(to bottom,#c6cdd4,#c8e5fb); */
+    border-bottom: 1px solid #c3c8cc;
+}
+
+.jericho_tab .tab_pages .tabs>ul>li {
+    width: 110px;
+    opacity: 1;
+    background-color: transparent!important;
+    color: #0680c6;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    border-radius: 4px 4px 0 0;
+    line-height: 32px;
+    height: 32px;
+	margin-right:10px;
+}
+
+.navbar .brand {
+    padding: 10px 0px 10px 60px;
+    padding-left: 55px!important;
+    background: url(../images/bg.png)no-repeat center center;
+    width: 100%;
+    background-size: cover;
+    font-size: 20px!important;
+}
+.navbar .brand >img {
+    width: 50px;
+    height: auto;
+    display: inline-block;
+    padding-right: 10px;
+}
+#header {
+    margin-bottom: 0!important;
+}
+
+.jericho_tab .tab_pages .jericho_tabs .tab_left .tab_text {
+    font-size: 12px;
+}
+
+.nav>li>a:hover,
+.nav>li>a:focus {
+    text-decoration: none;
+    background-color: rgba(104, 175, 236, 0.1);
+}
+
+.nav-list li a {
+    margin: 0;
+}
+
+.accordion-heading .accordion-toggle i {
+    float: right;
+}
+
+.accordion-inner .nav-list li a {
+    padding: 8px 0px 8px 35px;
+	font-size:12px;
+}
+
+.nav-list>.active>a,
+.nav-list>.active>a:hover,
+.nav-list>.active>a:focus {
+    color: #3daae8;
+    font-size: 12px;
+    color: #333333;
+    background: #D6DFFF;
+}
+.accordion-inner{
+    padding:0;
+}
+.nav>li>a:hover, .nav>li>a:focus{
+ background: #D6DFFF;
+ color: #333333;
+}
+.nav-tabs {
+    background: #f4f9fd!important;
+}
+.accordion-inner .nav-list{
+    padding:0;
+}
+.accordion-heading .accordion-toggle {
+    display: block;
+    padding: 10px 15px;
+}
+
+.navbar .nav>.active>a,
+.navbar .nav>.active>a:hover,
+.navbar .nav>.active>a:focus {
+    background:url(../images/menu_hover_bg.png)repeat center center;
+    width:74px;
+}
+
+.navbar .nav>li>a:focus,
+.navbar .nav>li>a:hover {
+
+    background:url(../images/menu_hover_bg.png)repeat center center;
+}
+.menu{
+    text-align: center;
+}
+.navbar .nav>li>a {
+    padding: 7px 36px;
+    font-size: 12px;
+}
+
+#userControl>li>a {
+    color: #A0B7FF;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 12px;
+}
+
+#userControl>li:nth-of-type(2)>a {
+    border-right: 1px solid #A0B7FF;
+}
+
+#userControl {
+    padding: 6px 0;
+    padding-right: 40px;
+}
+
+.nab-box {
+    width: 100%;
+    background: url(../images/menu_bg.png) repeat-x center center;
+    background-size:contain;
+    clear: both;
+    height: 34px;
+}
+
+.accordion-group .tips {
+    background-image: linear-gradient(-180deg, #D8E2FD 3%, #B0C1FA 100%);
+}
+
+.accordion-group .tips a {
+    color: #3D5DC4;
+    text-align: center;
+}
+
+#main .container-fluid {
+    padding-left: 0!important;
+}
+
+.icon-chevron-downadd {
+    background: url(../images/stop.png)no-repeat center center!important;
+    background: 22px 22px;
+    width: 22px;
+    height: 22px;
+}
+
+.icon-chevron-rightadd {
+    background: url(../images/open.png)no-repeat center center!important;
+    background: 22px 22px;
+    width: 22px;
+    height: 22px;
+}
+
+
+.accordion-inner {
+    background: #E8EEFF;
+}
+
+.accordion-heading,
+.table th {
+    background-image: linear-gradient(90deg, #FFFFFF 3%, #E8EDFC 80%);
+    box-shadow: 0 1px 0 0 #BDC4E0;
+}
+
+.accordion-group {
+    margin-bottom: 0;
+    box-shadow: 0 1px 0 0 #BDC4E0;
+    border: none;
+}
+.nav-tabs>.active>a, .nav-tabs>.active>a:hover, .nav-tabs>.active>a:focus{
+    color: #3D5DC4;
+    cursor: default;
+    background-color: #fff;
+    border:none;
+    border-bottom-color: transparent;
+   border-bottom: 1px solid #EAA844;
+}
+.nav-tabs>li>a{
+    color:#333;
+}

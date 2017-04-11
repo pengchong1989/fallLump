@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.receivedata.dao.ReceivedataDao">
+    
+	<sql id="receivedataColumns">
+		a.id AS "id",
+		a.msb_id AS "msbId",
+		a.lsb_id AS "lsbId",
+		a.temperature_msb AS "temperatureMsb",
+		a.temperature_lsb AS "temperatureLsb",
+		a.ranging_msb AS "rangingMsb",
+		a.ranging_lsb AS "rangingLsb",
+		a.acceleration_x_msb AS "accelerationXMsb",
+		a.acceleration_x_lsb AS "accelerationXLsb",
+		a.acceleration_y_msb AS "accelerationYMsb",
+		a.acceleration_y_lsb AS "accelerationYLsb",
+		a.acceleration_z_msb AS "accelerationZMsb",
+		a.acceleration_z_lsb AS "accelerationZLsb",
+		a.linespeed_x_msb AS "linespeedXMsb",
+		a.linespeed_x_lsb AS "linespeedXLsb",
+		a.linespeed_y_msb AS "linespeedYMsb",
+		a.linespeed_y_lsb AS "linespeedYLsb",
+		a.linespeed_z_msb AS "linespeedZMsb",
+		a.linespeed_z_lsb AS "linespeedZLsb",
+		a.test_msb AS "testMsb",
+		a.test_lsb AS "testLsb",
+		a.gps_lng AS "gpsLng",
+		a.gps_lat AS "gpsLat",
+		a.rtc_time AS "rtcTime",
+		a.alarm_status AS "alarmStatus",
+		a.segment_id_msb AS "segmentIdMsb",
+		a.segment_id_lsb AS "segmentIdLsb",
+		a.signal_strength_msb AS "signalStrengthMsb",
+		a.handshake_status AS "handshakeStatus",
+		a.battery_capacity AS "batteryCapacity",
+		a.battery_temperature AS "batteryTemperature",
+		a.battery_status AS "batteryStatus",
+		a.amsb AS "amsb",
+		a.alsb AS "alsb",
+		a.bmsb AS "bmsb",
+		a.blsb AS "blsb",
+		a.cmsb AS "cmsb",
+		a.clsb AS "clsb",
+		a.checknum AS "checknum",
+		a.aValue as "aValue",
+		a.bValue as "bValue"
+	</sql>
+	
+	<sql id="receivedataJoins">
+	</sql>
+    
+	<select id="get" resultType="Receivedata">
+		SELECT 
+			<include refid="receivedataColumns"/>
+		FROM receivedata a
+		<include refid="receivedataJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Receivedata">
+		SELECT 
+			<include refid="receivedataColumns"/>
+		FROM receivedata a
+		<include refid="receivedataJoins"/>
+		<where>
+			
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Receivedata">
+		SELECT 
+			<include refid="receivedataColumns"/>
+		FROM receivedata a
+		<include refid="receivedataJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO receivedata(
+			id,
+			msb_id,
+			lsb_id,
+			temperature_msb,
+			temperature_lsb,
+			ranging_msb,
+			ranging_lsb,
+			acceleration_x_msb,
+			acceleration_x_lsb,
+			acceleration_y_msb,
+			acceleration_y_lsb,
+			acceleration_z_msb,
+			acceleration_z_lsb,
+			linespeed_x_msb,
+			linespeed_x_lsb,
+			linespeed_y_msb,
+			linespeed_y_lsb,
+			linespeed_z_msb,
+			linespeed_z_lsb,
+			test_msb,
+			test_lsb,
+			gps_lng,
+			gps_lat,
+			rtc_time,
+			alarm_status,
+			segment_id_msb,
+			segment_id_lsb,
+			signal_strength_msb,
+			handshake_status,
+			battery_capacity,
+			battery_temperature,
+			battery_status,
+			amsb,
+			alsb,
+			bmsb,
+			blsb,
+			cmsb,
+			clsb,
+			checknum,
+			aValue,
+			bValue
+		) VALUES (
+			#{id},
+			#{msbId},
+			#{lsbId},
+			#{temperatureMsb},
+			#{temperatureLsb},
+			#{rangingMsb},
+			#{rangingLsb},
+			#{accelerationXMsb},
+			#{accelerationXLsb},
+			#{accelerationYMsb},
+			#{accelerationYLsb},
+			#{accelerationZMsb},
+			#{accelerationZLsb},
+			#{linespeedXMsb},
+			#{linespeedXLsb},
+			#{linespeedYMsb},
+			#{linespeedYLsb},
+			#{linespeedZMsb},
+			#{linespeedZLsb},
+			#{testMsb},
+			#{testLsb},
+			#{gpsLng},
+			#{gpsLat},
+			#{rtcTime},
+			#{alarmStatus},
+			#{segmentIdMsb},
+			#{segmentIdLsb},
+			#{signalStrengthMsb},
+			#{handshakeStatus},
+			#{batteryCapacity},
+			#{batteryTemperature},
+			#{batteryStatus},
+			#{amsb},
+			#{alsb},
+			#{bmsb},
+			#{blsb},
+			#{cmsb},
+			#{clsb},
+			#{checknum},
+			#{aValue},
+			#{bValue}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE receivedata SET 	
+			msb_id = #{msbId},
+			lsb_id = #{lsbId},
+			temperature_msb = #{temperatureMsb},
+			temperature_lsb = #{temperatureLsb},
+			ranging_msb = #{rangingMsb},
+			ranging_lsb = #{rangingLsb},
+			acceleration_x_msb = #{accelerationXMsb},
+			acceleration_x_lsb = #{accelerationXLsb},
+			acceleration_y_msb = #{accelerationYMsb},
+			acceleration_y_lsb = #{accelerationYLsb},
+			acceleration_z_msb = #{accelerationZMsb},
+			acceleration_z_lsb = #{accelerationZLsb},
+			linespeed_x_msb = #{linespeedXMsb},
+			linespeed_x_lsb = #{linespeedXLsb},
+			linespeed_y_msb = #{linespeedYMsb},
+			linespeed_y_lsb = #{linespeedYLsb},
+			linespeed_z_msb = #{linespeedZMsb},
+			linespeed_z_lsb = #{linespeedZLsb},
+			test_msb = #{testMsb},
+			test_lsb = #{testLsb},
+			gps_lng = #{gpsLng},
+			gps_lat = #{gpsLat},
+			rtc_time = #{rtcTime},
+			alarm_status = #{alarmStatus},
+			segment_id_msb = #{segmentIdMsb},
+			segment_id_lsb = #{segmentIdLsb},
+			handshake_status = #{handshakeStatus},
+			battery_capacity = #{batteryCapacity},
+			battery_temperature = #{batteryTemperature},
+			battery_status = #{batteryStatus},
+			amsb = #{amsb},
+			alsb = #{alsb},
+			bmsb = #{bmsb},
+			blsb = #{blsb},
+			cmsb = #{cmsb},
+			clsb = #{clsb},
+			checknum = #{checknum}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM receivedata
+		WHERE id = #{id}
+	</update>
+	
+	<select id="alarmList" resultType="AlarmData">
+		SELECT 
+			msb_id as "id",segment_id_msb as "segmentId",alarm_status as "alarmStatus",rtc_time as "alarmDate"
+		FROM receivedata a
+		<where>
+		<if test="id != null and id !=''">
+			and a.msb_id = #{id}
+		</if> 
+		<if test="segmentId != null and segmentId != ''">
+		and a.segment_id_msb = #{segmentId}
+		</if>
+			
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findPageList" resultType="Receivedata">
+		SELECT 
+			<include refid="receivedataColumns"/>
+		FROM receivedata a  
+		
+		<where>
+		<if test="msbId != null and msbId !=''">
+			and a.msb_id = #{msbId}
+		</if> 
+		<if test="segmentIdMsb != null and segmentIdMsb != ''">
+		and a.segment_id_msb = #{segmentIdMsb}
+		</if>
+			
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="saveNew">
+		INSERT INTO newreceivedata(
+			id,
+			msb_id,
+			lsb_id,
+			temperature_msb,
+			temperature_lsb,
+			ranging_msb,
+			ranging_lsb,
+			acceleration_x_msb,
+			acceleration_x_lsb,
+			acceleration_y_msb,
+			acceleration_y_lsb,
+			acceleration_z_msb,
+			acceleration_z_lsb,
+			linespeed_x_msb,
+			linespeed_x_lsb,
+			linespeed_y_msb,
+			linespeed_y_lsb,
+			linespeed_z_msb,
+			linespeed_z_lsb,
+			test_msb,
+			test_lsb,
+			gps_lng,
+			gps_lat,
+			rtc_time,
+			alarm_status,
+			segment_id_msb,
+			segment_id_lsb,
+			signal_strength_msb,
+			handshake_status,
+			battery_capacity,
+			battery_temperature,
+			battery_status,
+			amsb,
+			alsb,
+			bmsb,
+			blsb,
+			cmsb,
+			clsb,
+			checknum
+		) VALUES (
+			#{id},
+			#{msbId},
+			#{lsbId},
+			#{temperatureMsb},
+			#{temperatureLsb},
+			#{rangingMsb},
+			#{rangingLsb},
+			#{accelerationXMsb},
+			#{accelerationXLsb},
+			#{accelerationYMsb},
+			#{accelerationYLsb},
+			#{accelerationZMsb},
+			#{accelerationZLsb},
+			#{linespeedXMsb},
+			#{linespeedXLsb},
+			#{linespeedYMsb},
+			#{linespeedYLsb},
+			#{linespeedZMsb},
+			#{linespeedZLsb},
+			#{testMsb},
+			#{testLsb},
+			#{gpsLng},
+			#{gpsLat},
+			#{rtcTime},
+			#{alarmStatus},
+			#{segmentIdMsb},
+			#{segmentIdLsb},
+			#{signalStrengthMsb},
+			#{handshakeStatus},
+			#{batteryCapacity},
+			#{batteryTemperature},
+			#{batteryStatus},
+			#{amsb},
+			#{alsb},
+			#{bmsb},
+			#{blsb},
+			#{cmsb},
+			#{clsb},
+			#{checknum}
+		)
+	</insert>
+	
+	
+	<select id="findListNow" resultType="Receivedata">
+		SELECT 
+			<include refid="receivedataColumns"/>
+		FROM newreceivedata a  
+		
+		<where>
+		<if test="msbId != null and msbId !=''">
+			and a.msb_id = #{msbId}
+		</if> 
+		<if test="segmentIdMsb != null and segmentIdMsb != ''">
+		and a.segment_id_msb = #{segmentIdMsb}
+		</if>
+			
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id='articleCount'  resultType='java.util.Map'>
+		select temperature_msb,ranging_msb,aValue,bValue,rtc_time from receivedata where msb_id=#{paramDto.msbId} and segment_id_msb=#{paramDto.segmentId} 
+		<if test="paramDto.beginDate != null">
+		and rtc_time  &gt;= #{paramDto.beginDate}
+		</if>
+		<if test="paramDto.endDate != null">
+		and rtc_time &lt;= date_add(#{paramDto.endDate}, interval 1 day)
+		</if>
+		 order by rtc_time asc
+	</select>
+	
+	<select id='statisticsCount' resultType='java.util.Map'>
+		select r.msb_id,r.alarm_status,r.segment_id_msb,r.rtc_time,n.sensor_time1 from newreceivedata r inner join nodedata n on r.msb_id = n.msb_id and r.segment_id_msb = n.segment_id_msb
+	</select>
+	
+	<update id="updateNew">
+		UPDATE newreceivedata SET 	
+			lsb_id = #{lsbId},
+			temperature_msb = #{temperatureMsb},
+			temperature_lsb = #{temperatureLsb},
+			ranging_msb = #{rangingMsb},
+			ranging_lsb = #{rangingLsb},
+			acceleration_x_msb = #{accelerationXMsb},
+			acceleration_x_lsb = #{accelerationXLsb},
+			acceleration_y_msb = #{accelerationYMsb},
+			acceleration_y_lsb = #{accelerationYLsb},
+			acceleration_z_msb = #{accelerationZMsb},
+			acceleration_z_lsb = #{accelerationZLsb},
+			linespeed_x_msb = #{linespeedXMsb},
+			linespeed_x_lsb = #{linespeedXLsb},
+			linespeed_y_msb = #{linespeedYMsb},
+			linespeed_y_lsb = #{linespeedYLsb},
+			linespeed_z_msb = #{linespeedZMsb},
+			linespeed_z_lsb = #{linespeedZLsb},
+			test_msb = #{testMsb},
+			test_lsb = #{testLsb},
+			gps_lng = #{gpsLng},
+			gps_lat = #{gpsLat},
+			rtc_time = #{rtcTime},
+			alarm_status = #{alarmStatus},
+			segment_id_lsb = #{segmentIdLsb},
+			handshake_status = #{handshakeStatus},
+			battery_capacity = #{batteryCapacity},
+			battery_temperature = #{batteryTemperature},
+			battery_status = #{batteryStatus},
+			amsb = #{amsb},
+			alsb = #{alsb},
+			bmsb = #{bmsb},
+			blsb = #{blsb},
+			cmsb = #{cmsb},
+			clsb = #{clsb},
+			checknum = #{checknum},
+			aValue=#{aValue},
+			bValue=#{bValue}
+		WHERE msb_id = #{msbId} and segment_id_msb = #{segmentIdMsb}
+	</update>
+</mapper>
