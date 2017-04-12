@@ -161,7 +161,7 @@ public class ReceivedataService extends CrudService<ReceivedataDao, Receivedata>
 			Map<String, Object> map = list.get(j);
 			Date d = (Date) map.get("rtc_time");
 			long l = System.currentTimeMillis()-d.getTime();
-			if(l>Integer.parseInt(map.get("sensor_time1").toString())*1000){
+			if(l>(Integer.parseInt(map.get("sensor_time1").toString())*1000*60+2*60*100)){
 				outline +=1;
 			}else{
 				online +=1;
