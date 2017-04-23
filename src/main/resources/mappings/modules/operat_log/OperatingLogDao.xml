@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.operat_log.dao.OperatingLogDao">
+    
+	<sql id="operatingLogColumns">
+		a.id AS "id",
+		a.type AS "type",
+		a.userid AS "userid",
+		a.params AS "params",
+		a.title AS "title",
+		a.create_date AS "createDate"
+	</sql>
+	
+	<sql id="operatingLogJoins">
+	</sql>
+    
+	<select id="get" resultType="OperatingLog">
+		SELECT 
+			<include refid="operatingLogColumns"/>
+		FROM operating_log a
+		<include refid="operatingLogJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="OperatingLog">
+		SELECT a.*,
+			u.id AS "createBy.id",
+			u.name AS "createBy.name"
+		FROM operating_log a
+		left JOIN sys_user u ON u.id = a.userid
+		WHERE a.create_date BETWEEN #{beginDate} AND #{endDate}
+			<if test="title != null and title != ''">
+				AND a.title LIKE 
+					<if test="dbName == 'oracle'">'%'||#{title}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{title}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{title},'%')</if>
+			</if>
+			ORDER BY a.create_date DESC
+	</select>
+	
+	<select id="findAllList" resultType="OperatingLog">
+		SELECT 
+			<include refid="operatingLogColumns"/>
+		FROM operating_log a
+		<include refid="operatingLogJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO operating_log(
+			id,
+			type,
+			userid,
+			params,
+			title,
+			create_date
+		) VALUES (
+			#{id},
+			#{type},
+			#{createBy.id}, 
+			#{params},
+			#{title},
+			#{createDate}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE operating_log SET 	
+			type = #{type},
+			userid = #{userid},
+			params = #{params},
+			title = #{title}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM operating_log
+		WHERE id = #{id}
+	</update>
+	
+</mapper>
