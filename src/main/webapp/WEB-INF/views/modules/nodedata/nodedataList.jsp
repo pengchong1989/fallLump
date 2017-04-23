@@ -40,6 +40,7 @@
 				<th>上限位距离</th>
 				<th>下限位距离</th>
 				<th>激光传感器距离</th>
+				<th>更新时间</th>
 				<th>操作</th>
 				</shiro:hasPermission>
 			</tr>
@@ -54,6 +55,7 @@
 				<td>${nodedata.upLimitMsb}</td>
 				<td>${nodedata.lowerLimitMsb}</td>
 				<td>${nodedata.testmsb}</td>
+				<td><fmt:formatDate value="${nodedata.updateDate}" type="both"/></td>
 				<shiro:hasPermission name="nodedata:nodedata:edit"><td>
     				<a href="${ctx}/nodedata/nodedata/form?id=${nodedata.id}">修改</a>
 					<a href="${ctx}/nodedata/nodedata/delete?id=${nodedata.id}" onclick="return confirmx('确认要删除该nodeData吗？', this.href)">删除</a>

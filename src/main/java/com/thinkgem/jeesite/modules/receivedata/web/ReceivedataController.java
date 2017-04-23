@@ -156,7 +156,7 @@ public class ReceivedataController extends BaseController {
 			receivedata2.setTemperatureMsb(d+"");
 			receivedata2.setRangingMsb(Integer.parseInt(receivedata2.getRangingMsb())*5+"");
 			Map<String,Object> map = (Map<String, Object>) JsonMapper.fromJsonString(JedisUtils.get(ZTConstants.jedisKey.send_data_string+receivedata2.getSegmentIdMsb()+"_"+receivedata2.getMsbId()), Map.class);
-			receivedata2.setaValue(((Integer)map.get("a0")-(Integer)map.get("b0")+Integer.parseInt(receivedata2.getRangingMsb()))+"");
+			receivedata2.setaValue(((Integer)map.get("a0")-(Integer)map.get("c0")+Integer.parseInt(receivedata2.getRangingMsb()))+"");
 			receivedata2.setbValue(((Integer)map.get("b0")+(Integer)map.get("c0")-Integer.parseInt(receivedata2.getRangingMsb()))+"");
 		}
 		model.addAttribute("page", page);

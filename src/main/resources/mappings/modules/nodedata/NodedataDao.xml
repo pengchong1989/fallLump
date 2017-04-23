@@ -23,7 +23,8 @@
 		a.checknum AS "checknum",
 		a.a0 AS "a0",
 		a.b0 AS "b0",
-		a.c0 AS "c0"
+		a.c0 AS "c0",
+		a.updateDate as "updateDate"
 	</sql>
 	
 	<sql id="nodedataJoins">
@@ -93,7 +94,8 @@
 			checknum,
 			a0,
 			b0,
-			c0
+			c0,
+			updateDate
 		) VALUES (
 			#{id},
 			#{testmsb},
@@ -115,7 +117,8 @@
 			#{checknum},
 			#{a0},
 			#{b0},
-			#{c0}
+			#{c0},
+			#{updateDate}
 		)
 	</insert>
 	
@@ -140,7 +143,8 @@
 			checknum = #{checknum},
 			a0 = #{a0},
 			b0 = #{b0},
-			c0 = #{c0}
+			c0 = #{c0},
+			updateDate =#{updateDate}
 		WHERE id = #{id}
 	</update>
 	

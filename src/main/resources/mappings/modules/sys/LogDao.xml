@@ -10,9 +10,9 @@
 			c.name AS "createBy.company.name",
 			o.name AS "createBy.office.name"
 		FROM sys_log a
-		JOIN sys_user u ON u.id = a.create_by
-		JOIN sys_office c ON c.id = u.company_id
-		JOIN sys_office o ON o.id = u.office_id
+		left JOIN sys_user u ON u.id = a.create_by
+		left JOIN sys_office c ON c.id = u.company_id
+		left JOIN sys_office o ON o.id = u.office_id
 		WHERE a.create_date BETWEEN #{beginDate} AND #{endDate}
 		<if test="title != null and title != ''">
 			AND a.title LIKE 

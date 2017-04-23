@@ -19,7 +19,7 @@ import com.thinkgem.jeesite.common.persistence.DataEntity;
 public class Nodedata extends DataEntity<Nodedata> {
 	
 	private static final long serialVersionUID = 1L;
-	private int testmsb=0;		// 激光测距传感器  
+	private Integer testmsb=0;		// 激光测距传感器  
 	private String testlsb;		// testlsb
 	private String command;		// 命令字节
 	private String sensorTime1="30";		// 传感器时间1
@@ -62,7 +62,7 @@ public class Nodedata extends DataEntity<Nodedata> {
 		super(id);
 	}
 
-	public int getTestmsb() {
+	public Integer getTestmsb() {
 		return testmsb;
 	}
 

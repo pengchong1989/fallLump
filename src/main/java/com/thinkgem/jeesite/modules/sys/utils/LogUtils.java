@@ -19,6 +19,8 @@ import com.thinkgem.jeesite.common.utils.CacheUtils;
 import com.thinkgem.jeesite.common.utils.Exceptions;
 import com.thinkgem.jeesite.common.utils.SpringContextHolder;
 import com.thinkgem.jeesite.common.utils.StringUtils;
+import com.thinkgem.jeesite.modules.operat_log.dao.OperatingLogDao;
+import com.thinkgem.jeesite.modules.operat_log.entity.OperatingLog;
 import com.thinkgem.jeesite.modules.sys.dao.LogDao;
 import com.thinkgem.jeesite.modules.sys.dao.MenuDao;
 import com.thinkgem.jeesite.modules.sys.entity.Log;
@@ -36,6 +38,17 @@ public class LogUtils {
 	
 	private static LogDao logDao = SpringContextHolder.getBean(LogDao.class);
 	private static MenuDao menuDao = SpringContextHolder.getBean(MenuDao.class);
+	private static OperatingLogDao operatingLogDao = SpringContextHolder.getBean(OperatingLogDao.class);
+	
+	
+	public static void saveOperatingLog(String title,String type,String params){
+		OperatingLog operatingLog = new OperatingLog();
+		operatingLog.setTitle(title);
+		operatingLog.setType(type);
+		operatingLog.setParams(params);
+		operatingLog.preInsert();
+		operatingLogDao.insert(operatingLog);
+	}
 	
 	/**
 	 * 保存日志

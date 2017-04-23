@@ -183,7 +183,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">初始化配置标志：</label>
+			<label class="control-label">重启字节：</label>
 			<div class="controls">
 				<form:select path="restart">
 					<form:options items="${fns:getDictList('yes_no')}" itemLabel="label" itemValue="value" htmlEscape="false"/>
